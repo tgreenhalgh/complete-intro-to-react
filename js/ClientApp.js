@@ -10,7 +10,10 @@ var MyTitle = React.createClass({
   render: function() {
     return (
       div(null,
-        h1(null, "React component, eh!"))
+        // this: the element we've created
+        // props: things parents passed in (READONLY)
+        // title: key of the prop
+        h1(null, this.props.title))
       );
   }
 });
@@ -22,11 +25,11 @@ var MyFirstComponet = React.createClass({ //createClass makes blueprint
     return (
       div(null, //attributes (classname, id, etc)
         // React.createElement(MyTitle), // can either be done like this
-        // React.createElement(MyTitle), // or as an array: div(null, [..., ...])
-        MyTitleFactory(null),
-        MyTitleFactory(null),
-        MyTitleFactory(null),
-        MyTitleFactory(null)
+        // React.createElement(MyTitle) // or as an array: div(null, [..., ...])
+        MyTitleFactory({ title: 'Props!! 1' }),
+        MyTitleFactory({ title: 'Props!! 2' }),
+        MyTitleFactory({ title: 'Props!! 3' }),
+        MyTitleFactory({ title: 'Props!! 4' })
       )
     );
   }
