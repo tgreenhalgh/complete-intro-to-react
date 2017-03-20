@@ -3,7 +3,6 @@
 var div = React.DOM.div;
 var h1 = React.DOM.h1;
 
-console.log("yo!!");
 //note: every react component MUST have a `render` method
 //and the `render` method must return markup
 //also, it should be a `pure` function (no modifying state, etc)
@@ -16,14 +15,18 @@ var MyTitle = React.createClass({
   }
 });
 
+var MyTitleFactory = React.createFactory(MyTitle);
+
 var MyFirstComponet = React.createClass({ //createClass makes blueprint
   render: function() {
     return (
       div(null, //attributes (classname, id, etc)
-        React.createElement(MyTitle), // can either be done like this
-        React.createElement(MyTitle), // or as an array: div(null, [..., ...])
-        React.createElement(MyTitle),
-        React.createElement(MyTitle)
+        // React.createElement(MyTitle), // can either be done like this
+        // React.createElement(MyTitle), // or as an array: div(null, [..., ...])
+        MyTitleFactory(null),
+        MyTitleFactory(null),
+        MyTitleFactory(null),
+        MyTitleFactory(null)
       )
     );
   }
