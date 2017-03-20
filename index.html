@@ -8,22 +8,6 @@
   <div id='app'>React has not yet rendered</div>
   <script src='node_modules/react/dist/react.js'></script>
   <script src='node_modules/react-dom/dist/react-dom.js'></script>
-  <script>
-  //components, tags, elements, etc: are all function calls
-  var div = React.DOM.div;
-  var h1 = React.DOM.h1;
-
-    var MyFirstComponet = React.createClass({ //createClass makes blueprint
-      render: function() {
-        return (
-          div(null, //attributes (classname, id, etc)
-            h1(null, 'This is my first component')
-          )
-        );
-      }
-    });
-    //createElement((element), whereitgoes)
-    ReactDOM.render(React.createElement(MyFirstComponet), document.getElementById('app'));
-  </script>
+  <script src='js/ClientApp.js'></script>
 </body>
 </html>
