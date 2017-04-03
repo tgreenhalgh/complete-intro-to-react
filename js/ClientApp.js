@@ -13,7 +13,8 @@ var MyTitle = React.createClass({
         // this: the element we've created
         // props: things parents passed in (READONLY)
         // title: key of the prop
-        h1(null, this.props.title))
+        h1({ style: { color: this.props.color }}, this.props.title))
+        // h1({ style: { color: this.props.color, fontweight: 'bold' }}, this.props.title))
       );
   }
 });
@@ -26,10 +27,10 @@ var MyFirstComponet = React.createClass({ //createClass makes blueprint
       div(null, //attributes (classname, id, etc)
         // React.createElement(MyTitle), // can either be done like this
         // React.createElement(MyTitle) // or as an array: div(null, [..., ...])
-        MyTitleFactory({ title: 'Props!! 1' }),
-        MyTitleFactory({ title: 'Props!! 2' }),
-        MyTitleFactory({ title: 'Props!! 3' }),
-        MyTitleFactory({ title: 'Props!! 4' })
+        MyTitleFactory({ title: 'Props!! 1', color: 'peru' }),
+        MyTitleFactory({ title: 'Thomas!! 2', color: 'mediumaquamarine' }),
+        MyTitleFactory({ title: 'Props!! 3', color: 'dodgerblue' }),
+        MyTitleFactory({ title: 'Props!! 4', color: 'rebeccapurple' })
       )
     );
   }
