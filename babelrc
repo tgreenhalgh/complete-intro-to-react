@@ -1,0 +1,38 @@
+command line: (better to make a config file)
+webpack --module-bind='js=babel' js/ClientApp.js public/bundle.js
+
+module-bind says whenever find a js file, run it through babel
+
+
+// babel has two concepts: plugin & preset
+// a preset is a group of plugins
+{
+  "presets": [
+  "react", // all the JSX transformations (from JSX to ES5)
+  // es2015 has ALL the plugins to get from ES6 to ES5
+  // don't do for production, just include the plugins needed
+  [ "es2015", { "modules": false } // modules: false means
+                      // don't transform the ES6 module imports
+                      // because we want WebPack to take care of it
+                      // because can do "tree shaking" only include
+                      // code  that's actually run (Uglify takes out
+                      // the code that can't be run)
+                      // synonymous to "live code inclusion"
+                      // which is different from "dead code exclusion"
+                      // uglify does live code inclusion (tree shaking)
+                      // uglify is included in WebPack
+
+                      , "loose": true // loose excludes the edge cases
+                      ]
+  ]
+
+  "plugins": [
+    include only what's needed here
+  ]
+}
+
+// note: 'react' preset is fine for production
+
+Babel transforms code from ES6 to ES5
+WebPack bundles all the code
+Uglify gets rid of all the code that's not used
